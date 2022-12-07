@@ -15,16 +15,18 @@ pub fn main() {
         };
     });
     elves.push(calories_sum);
-    elves.sort_unstable();
+    elves.sort_unstable_by(|a, b| b.partial_cmp(a).unwrap());
 
     // Solution to first problem
+    let most_calories_elf: i32 = elves.iter().take(1).sum();
     // let most_calories_elf = elves.pop().unwrap();
-    // println!("{most_calories_elf}");
+    println!("{most_calories_elf}");
 
     // Solution to second problem
-    let mut most_calories_elves = elves.pop().unwrap();
-    most_calories_elves = most_calories_elves + elves.pop().unwrap();
-    most_calories_elves = most_calories_elves + elves.pop().unwrap();
+    let most_calories_elves: i32 = elves.iter().take(3).sum();
+    // let mut most_calories_elves = elves.pop().unwrap();
+    // most_calories_elves = most_calories_elves + elves.pop().unwrap();
+    // most_calories_elves = most_calories_elves + elves.pop().unwrap();
 
     println!("{most_calories_elves}");
 }
